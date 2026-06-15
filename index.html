@@ -40,6 +40,7 @@
     --r-gold:#e0a93a;
     --r-gold2:#d4882a;
     --r-red:#d14b3a;
+    --r-green:#3fbf4a;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -134,14 +135,11 @@
   .rung{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:1rem;padding:.85rem 1rem;border-bottom:1px dashed rgba(58,63,46,.18);position:relative;transition:background .15s}
   .rung:hover{background:var(--paper-dim)}
   .rung::before{content:"";position:absolute;left:-7px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid rgba(58,63,46,.4)}
-  .rung.here::before{background:var(--orange);border-color:var(--orange);box-shadow:0 0 0 4px rgba(226,91,42,.2)}
-  .rung.here{background:rgba(226,91,42,.07)}
-  /* chevron insignia */
-  .chevs{display:flex;flex-direction:column;align-items:center;gap:1px;justify-self:center}
-  .chev{font-size:.9rem;line-height:.7;font-weight:700}
+  /* chevron insignia (SVG) */
+  .insig{justify-self:center;width:40px;height:48px;display:flex;align-items:center;justify-content:center}
+  .insig svg{width:40px;height:48px;display:block}
   .rung-name{font-family:'Saira Condensed';font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:.02em}
   .rung-abbr{font-family:'DM Mono';font-size:.72rem;letter-spacing:.12em;color:#8a8568}
-  .here-tag{font-family:'DM Mono';font-size:.6rem;letter-spacing:.12em;background:var(--orange);color:var(--sand-light);padding:.2rem .5rem;text-transform:uppercase}
   .ladder-note{max-width:760px;margin:1.6rem auto 0;font-family:'Oswald';font-weight:400;font-size:.92rem;color:#6f6b54;text-align:center}
 
   /* ---- features ---- */
@@ -247,54 +245,97 @@
       <div class="section-title">Everyone starts a <em>Private.</em><br>Ten ranks. Earn every one.</div>
     </div>
     <div class="ladder">
-      <!-- top to bottom, SMA at top -->
+      <!-- top to bottom, SMA at top. SVG chevron-stack insignia, tier-colored. -->
       <div class="rung">
-        <div class="chevs" style="color:var(--r-red)"><span class="chev">⌃</span><span class="chev">≫≫≫</span></div>
+        <div class="insig">
+          <svg viewBox="0 0 40 48" fill="none" stroke="var(--r-red)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 8 L20 4 L26 8" stroke-width="2.6"/>
+            <path d="M6 20 L20 11 L34 20"/><path d="M6 30 L20 21 L34 30"/><path d="M6 40 L20 31 L34 40"/>
+          </svg>
+        </div>
         <div><div class="rung-name">Sergeant Major of the Army</div></div>
         <div class="rung-abbr">SMA</div>
       </div>
       <div class="rung">
-        <div class="chevs" style="color:var(--r-gold)"><span class="chev">≫≫≫</span></div>
+        <div class="insig">
+          <svg viewBox="0 0 40 48" fill="none" stroke="var(--r-gold)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 9 L20 5 L25 9" stroke-width="2.4"/>
+            <path d="M6 21 L20 12 L34 21"/><path d="M6 31 L20 22 L34 31"/><path d="M6 41 L20 32 L34 41"/>
+          </svg>
+        </div>
         <div><div class="rung-name">Sergeant Major</div></div>
         <div class="rung-abbr">SGM</div>
       </div>
       <div class="rung">
-        <div class="chevs" style="color:var(--r-gold2)"><span class="chev">≫≫</span></div>
+        <div class="insig">
+          <svg viewBox="0 0 40 48" fill="none" stroke="var(--r-gold2)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 23 L20 14 L34 23"/><path d="M6 33 L20 24 L34 33"/><path d="M6 43 L20 34 L34 43"/>
+          </svg>
+        </div>
         <div><div class="rung-name">Master Sergeant</div></div>
         <div class="rung-abbr">MSG</div>
       </div>
       <div class="rung">
-        <div class="chevs" style="color:var(--r-purple)"><span class="chev">≫≫</span></div>
+        <div class="insig">
+          <svg viewBox="0 0 40 48" fill="none" stroke="var(--r-purple)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 23 L20 14 L34 23"/><path d="M6 33 L20 24 L34 33"/><path d="M6 43 L20 34 L34 43"/>
+          </svg>
+        </div>
         <div><div class="rung-name">Sergeant First Class</div></div>
         <div class="rung-abbr">SFC</div>
       </div>
       <div class="rung">
-        <div class="chevs" style="color:var(--r-purple2)"><span class="chev">≫</span></div>
+        <div class="insig">
+          <svg viewBox="0 0 40 48" fill="none" stroke="var(--r-purple2)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 27 L20 18 L34 27"/><path d="M6 37 L20 28 L34 37"/>
+          </svg>
+        </div>
         <div><div class="rung-name">Staff Sergeant</div></div>
         <div class="rung-abbr">SSG</div>
       </div>
       <div class="rung">
-        <div class="chevs" style="color:var(--r-blue)"><span class="chev">≫</span></div>
+        <div class="insig">
+          <svg viewBox="0 0 40 48" fill="none" stroke="var(--r-blue)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 11 L20 8 L24 11" stroke-width="2.2"/>
+            <path d="M6 27 L20 18 L34 27"/><path d="M6 37 L20 28 L34 37"/>
+          </svg>
+        </div>
         <div><div class="rung-name">Sergeant</div></div>
         <div class="rung-abbr">SGT</div>
       </div>
       <div class="rung">
-        <div class="chevs" style="color:var(--r-blue2)"><span class="chev">⌃⌃</span></div>
+        <div class="insig">
+          <svg viewBox="0 0 40 48" fill="none" stroke="var(--r-blue2)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 30 L20 21 L34 30"/><path d="M6 40 L20 31 L34 40"/>
+          </svg>
+        </div>
         <div><div class="rung-name">Specialist</div></div>
         <div class="rung-abbr">SPC</div>
       </div>
-      <div class="rung here">
-        <div class="chevs" style="color:var(--orange)"><span class="chev">⌃⌃</span></div>
+      <div class="rung">
+        <div class="insig">
+          <svg viewBox="0 0 40 48" fill="none" stroke="var(--r-green)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 30 L20 21 L34 30"/><path d="M6 40 L20 31 L34 40"/>
+          </svg>
+        </div>
         <div><div class="rung-name">Corporal</div></div>
-        <div class="here-tag">You are here</div>
+        <div class="rung-abbr">CPL</div>
       </div>
       <div class="rung">
-        <div class="chevs" style="color:var(--r-tan)"><span class="chev">⌃</span></div>
+        <div class="insig">
+          <svg viewBox="0 0 40 48" fill="none" stroke="var(--r-tan)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 35 L20 26 L34 35"/>
+          </svg>
+        </div>
         <div><div class="rung-name">Private First Class</div></div>
         <div class="rung-abbr">PFC</div>
       </div>
       <div class="rung">
-        <div class="chevs" style="color:var(--r-olive)"><span class="chev">∧</span></div>
+        <div class="insig">
+          <svg viewBox="0 0 40 48" fill="none" stroke="var(--r-olive)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 38 L20 27 L31 38"/>
+          </svg>
+        </div>
         <div><div class="rung-name">Private</div></div>
         <div class="rung-abbr">PVT</div>
       </div>

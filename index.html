@@ -3,211 +3,371 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DrillFit — Support &amp; Privacy</title>
-<meta name="description" content="DrillFit: your drill sergeant fitness tracker. Support, FAQ, and privacy policy.">
+<script>
+  // Preserve legacy single-page anchors from the old support+privacy page.
+  // The in-review App Store privacy link is /drillfit-site/#privacy -> map to /privacy.html.
+  (function(){
+    var h = (location.hash || '').toLowerCase();
+    if (h === '#privacy') location.replace('privacy.html');
+    else if (h === '#support' || h === '#faq') location.replace('support.html');
+  })();
+</script>
+<meta name="description" content="DrillFit — a workout and nutrition tracker with a drill sergeant personality and a 10-rank military strength ladder. Free on iOS.">
+<title>DrillFit — Drop and Give Me 20</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Saira+Condensed:wght@600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0E0E12; --panel:#16161c; --panel-2:#1d1d25;
-    --line:#262630; --txt:#EDEDF2; --muted:#9a9aa8;
-    --accent:#0A84FF; --accent-soft:rgba(10,132,255,.12);
-    --ok:#30D158; --maxw:760px;
+    --olive:#3a3f2e;
+    --olive-deep:#23271a;
+    --olive-mid:#2f3422;
+    --sand:#d8cfb4;
+    --sand-light:#ebe5d2;
+    --orange:#e25b2a;
+    --orange-bright:#f06937;
+    --stencil-yellow:#e8b93f;
+    --ink:#16180f;
+    --paper:#e7e1cd;
+    --paper-dim:#dad3bb;
+    /* rank tier spectrum (from app) */
+    --r-olive:#a8a06a;
+    --r-tan:#c9b97a;
+    --r-blue:#4a90d9;
+    --r-blue2:#3b6fc4;
+    --r-purple:#8e6fd0;
+    --r-purple2:#a05fc9;
+    --r-gold:#e0a93a;
+    --r-gold2:#d4882a;
+    --r-red:#d14b3a;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
+  *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    background:var(--bg); color:var(--txt);
-    font-family:"Barlow",system-ui,sans-serif; line-height:1.6;
-    -webkit-font-smoothing:antialiased;
+  body{font-family:'Oswald',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden}
+  ::selection{background:var(--orange);color:var(--sand-light)}
+  a{color:inherit}
+
+  /* hazard tape divider reused */
+  .hazard{height:14px;background:repeating-linear-gradient(45deg,var(--ink),var(--ink) 16px,var(--stencil-yellow) 16px,var(--stencil-yellow) 32px)}
+
+  /* ---- top tag bar ---- */
+  .tagbar{
+    background:var(--ink);color:var(--sand);
+    font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;
+    padding:.5rem 1.5rem;display:flex;justify-content:space-between;align-items:center;
   }
-  body::before{
-    content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
-    background:
-      radial-gradient(900px 500px at 80% -10%, rgba(10,132,255,.10), transparent 60%),
-      radial-gradient(700px 400px at -10% 10%, rgba(10,132,255,.06), transparent 55%);
-  }
-  .wrap{position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; padding:0 22px}
-  header.hero{padding:72px 0 30px; text-align:center}
-  .badge{
-    display:inline-flex; align-items:center; gap:8px; font-family:"Barlow Condensed";
-    font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:13px;
-    color:var(--accent); background:var(--accent-soft); border:1px solid rgba(10,132,255,.25);
-    padding:6px 14px; border-radius:999px;
-  }
-  .logo{
-    font-family:"Barlow Condensed"; font-weight:800; font-size:clamp(46px,9vw,76px);
-    line-height:.92; letter-spacing:-.01em; text-transform:uppercase; margin:18px 0 6px;
-  }
-  .logo span{color:var(--accent)}
-  .tag{color:var(--muted); font-size:18px; font-weight:500}
+  .tagbar span{opacity:.65}
+
+  /* ---- nav ---- */
   nav{
-    position:sticky; top:0; z-index:5; display:flex; gap:6px; justify-content:center;
-    flex-wrap:wrap; padding:14px 0; margin-top:18px;
-    background:rgba(14,14,18,.82); backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
+    background:var(--olive);color:var(--sand-light);
+    padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;
+    position:sticky;top:0;z-index:50;border-bottom:3px solid var(--orange);
   }
-  nav a{
-    font-family:"Barlow Condensed"; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
-    font-size:15px; color:var(--muted); text-decoration:none; padding:8px 16px; border-radius:999px;
-    transition:.18s;
+  .brand{font-family:'Saira Condensed';font-weight:800;font-size:1.5rem;letter-spacing:.06em;display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--sand-light)}
+  .brand .ico{
+    width:30px;height:30px;background:var(--olive-deep);border:1px solid rgba(232,185,63,.3);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;color:var(--stencil-yellow);font-size:.95rem;letter-spacing:-3px;
   }
-  nav a:hover{color:var(--txt); background:var(--panel-2)}
-  section{padding:48px 0; border-bottom:1px solid var(--line)}
-  h2{
-    font-family:"Barlow Condensed"; font-weight:800; text-transform:uppercase; letter-spacing:.01em;
-    font-size:clamp(28px,5vw,40px); margin-bottom:6px;
+  .nav-right{display:flex;gap:1.5rem;align-items:center}
+  .nav-link{font-family:'DM Mono';font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;color:var(--sand);opacity:.8}
+  .nav-link:hover{opacity:1;color:var(--stencil-yellow)}
+  .nav-cta{
+    font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;
+    background:var(--orange);color:var(--sand-light);padding:.55rem 1.1rem;text-decoration:none;
+    clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
   }
-  h2::before{content:"▸ "; color:var(--accent)}
-  .sub{color:var(--muted); margin-bottom:26px; font-size:17px}
-  h3{font-family:"Barlow Condensed"; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
-     font-size:20px; margin:26px 0 8px; color:var(--txt)}
-  p{margin-bottom:14px; color:#d6d6df}
-  a{color:var(--accent)}
-  ul{margin:6px 0 16px 0; padding-left:20px}
-  li{margin-bottom:8px; color:#d6d6df}
-  .card{
-    background:linear-gradient(180deg,var(--panel),var(--panel-2));
-    border:1px solid var(--line); border-radius:18px; padding:26px 24px; margin-top:14px;
+  .nav-cta:hover{background:var(--orange-bright)}
+  @media(max-width:680px){.nav-link{display:none}}
+
+  /* ---- hero ---- */
+  .hero{
+    background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(0,0,0,.02) 30px,rgba(0,0,0,.02) 31px),var(--olive);
+    color:var(--sand-light);padding:4rem 1.5rem 4.5rem;position:relative;overflow:hidden;
   }
-  .cta{
-    display:inline-flex; align-items:center; gap:10px; margin-top:10px;
-    background:var(--accent); color:#fff; text-decoration:none; font-weight:700;
-    font-family:"Barlow Condensed"; text-transform:uppercase; letter-spacing:.05em; font-size:18px;
-    padding:14px 26px; border-radius:14px; transition:.18s;
+  /* big ghost stencil number */
+  .hero::after{
+    content:"01";position:absolute;right:-1rem;bottom:-4rem;
+    font-family:'Saira Condensed';font-weight:800;font-size:22rem;line-height:1;
+    color:rgba(0,0,0,.07);pointer-events:none;z-index:0;
   }
-  .cta:hover{transform:translateY(-2px); box-shadow:0 10px 30px rgba(10,132,255,.35)}
-  .pill{display:inline-block; font-size:13px; font-weight:600; color:var(--accent);
-        background:var(--accent-soft); border:1px solid rgba(10,132,255,.2);
-        padding:2px 10px; border-radius:999px; margin:0 4px 6px 0}
-  details{border:1px solid var(--line); border-radius:14px; padding:0 18px; margin-bottom:10px;
-          background:var(--panel); overflow:hidden}
-  details[open]{background:var(--panel-2)}
-  summary{cursor:pointer; list-style:none; padding:16px 0; font-weight:600; font-size:17px;
-          display:flex; justify-content:space-between; align-items:center}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+"; color:var(--accent); font-family:"Barlow Condensed"; font-size:26px; line-height:1}
-  details[open] summary::after{content:"–"}
-  details .body{padding:0 0 16px; color:#d6d6df}
-  .meta{color:var(--muted); font-size:14px; margin-bottom:18px}
-  footer{padding:40px 0 60px; text-align:center; color:var(--muted); font-size:14px}
-  footer .logo-sm{font-family:"Barlow Condensed"; font-weight:800; text-transform:uppercase;
-                  letter-spacing:.04em; color:var(--txt); font-size:20px}
+  .hero-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;position:relative;z-index:1}
+  .eyebrow{font-family:'DM Mono';font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--stencil-yellow);margin-bottom:1.3rem;display:flex;align-items:center;gap:.6rem}
+  .eyebrow::before{content:"";width:34px;height:2px;background:var(--orange)}
+  h1{font-family:'Saira Condensed';font-weight:800;font-size:clamp(3rem,7vw,6rem);line-height:.9;letter-spacing:.005em;text-transform:uppercase}
+  h1 .stamp{color:var(--orange)}
+  .hero-sub{font-size:1.18rem;font-weight:400;line-height:1.5;max-width:32ch;margin:1.6rem 0 2.2rem;color:var(--sand)}
+  .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+  .btn-primary{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.95rem;background:var(--orange);color:var(--sand-light);padding:.95rem 1.8rem;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:transform .15s,background .15s}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--orange-bright)}
+  .btn-ghost{font-family:'DM Mono';font-size:.78rem;text-transform:uppercase;letter-spacing:.18em;color:var(--sand);text-decoration:none;border-bottom:1px solid rgba(216,207,180,.4);padding-bottom:3px}
+  .btn-ghost:hover{color:var(--stencil-yellow)}
+
+  /* phone w/ notification */
+  .hero-phone{justify-self:center;width:248px;height:510px;background:linear-gradient(160deg,#0d0f09,#1e2116);border-radius:36px;border:7px solid #090b06;box-shadow:0 30px 60px rgba(0,0,0,.5);position:relative;padding:1.1rem;transform:rotate(2.5deg)}
+  .notch{width:90px;height:22px;background:#090b06;border-radius:0 0 14px 14px;position:absolute;top:7px;left:50%;transform:translateX(-50%)}
+  .lock-time{text-align:center;color:#f2eeda;font-family:'Oswald';font-weight:500;font-size:3.6rem;margin-top:3.2rem;line-height:1}
+  .lock-date{text-align:center;color:#b7b39c;font-family:'DM Mono';font-size:.72rem;letter-spacing:.12em;margin-top:.2rem}
+  .notif{background:rgba(243,239,218,.93);backdrop-filter:blur(6px);border-radius:16px;padding:.8rem .85rem;margin-top:9.5rem;box-shadow:0 8px 22px rgba(0,0,0,.35);animation:slideIn 1s cubic-bezier(.2,.9,.3,1.2) .5s backwards}
+  @keyframes slideIn{from{opacity:0;transform:translateY(28px) scale(.95)}to{opacity:1;transform:none}}
+  .notif-head{display:flex;align-items:center;gap:.5rem;margin-bottom:.25rem}
+  .notif-ico{width:26px;height:26px;border-radius:7px;background:var(--olive);display:flex;align-items:center;justify-content:center;color:var(--stencil-yellow);font-size:.7rem;letter-spacing:-2px}
+  .notif-app{font-family:'Saira Condensed';font-weight:800;font-size:.82rem;letter-spacing:.05em;color:var(--ink);text-transform:uppercase;flex:1}
+  .notif-time{font-family:'DM Mono';font-size:.62rem;color:#7a7660}
+  .notif-body{font-family:'Oswald';font-weight:600;font-size:.92rem;line-height:1.2;color:#23261a}
+
+  /* ---- ribbon ---- */
+  .ribbon{background:var(--orange);color:var(--sand-light);padding:1.1rem 1.5rem;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;font-family:'Saira Condensed';font-weight:700;text-transform:uppercase;letter-spacing:.06em;position:relative;z-index:2}
+  .ribbon b{font-size:1.05rem}
+  .ribbon span{opacity:.8;font-family:'DM Mono';font-weight:400;font-size:.68rem;letter-spacing:.12em;display:block}
+
+  /* ---- section scaffolding ---- */
+  section{padding:5rem 1.5rem}
+  .section-head{max-width:1140px;margin:0 auto 3rem}
+  .section-eyebrow{font-family:'DM Mono';font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--orange);margin-bottom:.7rem}
+  .section-title{font-family:'Saira Condensed';font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);text-transform:uppercase;line-height:.95}
+  .section-title em{color:var(--orange);font-style:normal}
+
+  /* ---- rank ladder (SIGNATURE) ---- */
+  .ranks{background:var(--paper);position:relative}
+  .ladder{max-width:760px;margin:0 auto;border-left:2px solid rgba(58,63,46,.25);padding-left:0}
+  .rung{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:1rem;padding:.85rem 1rem;border-bottom:1px dashed rgba(58,63,46,.18);position:relative;transition:background .15s}
+  .rung:hover{background:var(--paper-dim)}
+  .rung::before{content:"";position:absolute;left:-7px;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid rgba(58,63,46,.4)}
+  .rung.here::before{background:var(--orange);border-color:var(--orange);box-shadow:0 0 0 4px rgba(226,91,42,.2)}
+  .rung.here{background:rgba(226,91,42,.07)}
+  /* chevron insignia */
+  .chevs{display:flex;flex-direction:column;align-items:center;gap:1px;justify-self:center}
+  .chev{font-size:.9rem;line-height:.7;font-weight:700}
+  .rung-name{font-family:'Saira Condensed';font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:.02em}
+  .rung-abbr{font-family:'DM Mono';font-size:.72rem;letter-spacing:.12em;color:#8a8568}
+  .here-tag{font-family:'DM Mono';font-size:.6rem;letter-spacing:.12em;background:var(--orange);color:var(--sand-light);padding:.2rem .5rem;text-transform:uppercase}
+  .ladder-note{max-width:760px;margin:1.6rem auto 0;font-family:'Oswald';font-weight:400;font-size:.92rem;color:#6f6b54;text-align:center}
+
+  /* ---- features ---- */
+  .features{background:var(--olive-deep);color:var(--sand-light)}
+  .feat-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(216,207,180,.12)}
+  .feat{background:var(--olive-deep);padding:2.2rem 1.8rem;transition:background .2s}
+  .feat:hover{background:var(--olive-mid)}
+  .feat-tag{font-family:'DM Mono';font-size:.65rem;letter-spacing:.2em;color:var(--stencil-yellow);margin-bottom:1rem}
+  .feat h3{font-family:'Saira Condensed';font-weight:800;font-size:1.4rem;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.6rem}
+  .feat p{font-family:'Oswald';font-weight:400;font-size:.95rem;line-height:1.5;color:var(--sand)}
+
+  /* ---- drill mode band ---- */
+  .drill{background:var(--paper)}
+  .drill-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+  .intensity{display:flex;gap:.6rem;margin-top:1.6rem;flex-wrap:wrap}
+  .chip{font-family:'DM Mono';font-size:.72rem;letter-spacing:.08em;padding:.5rem 1rem;border:1px solid rgba(58,63,46,.3);text-transform:uppercase;color:#6f6b54}
+  .chip.active{background:var(--orange);color:var(--sand-light);border-color:var(--orange)}
+  .drill-text p{font-family:'Oswald';font-weight:400;font-size:1.05rem;line-height:1.55;color:#4a4733;margin-top:.8rem}
+  .notif-stack .mini-notif{background:var(--olive);border-radius:14px;padding:.9rem;margin-bottom:.8rem;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+  .mini-notif .notif-app{color:var(--sand-light)}
+  .mini-notif .notif-body{color:var(--sand)}
+  .mini-notif .notif-time{color:rgba(216,207,180,.6)}
+  .mini-notif .notif-ico{background:var(--olive-deep)}
+
+  /* ---- enlist CTA ---- */
+  .enlist{background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(0,0,0,.025) 30px,rgba(0,0,0,.025) 31px),var(--orange);color:var(--sand-light);text-align:center}
+  .enlist h2{font-family:'Saira Condensed';font-weight:800;font-size:clamp(2.4rem,6vw,4.5rem);text-transform:uppercase;line-height:.92;margin-bottom:.6rem}
+  .enlist p{font-family:'DM Mono';font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2rem;opacity:.88}
+  .btn-dark{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:1rem;background:var(--olive-deep);color:var(--sand-light);padding:1.05rem 2.4rem;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);transition:transform .15s}
+  .btn-dark:hover{transform:translateY(-2px)}
+
+  /* ---- footer ---- */
+  footer{background:var(--ink);color:var(--sand);padding:3rem 1.5rem 2rem}
+  .foot-grid{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem}
+  .foot-brand{font-family:'Saira Condensed';font-weight:800;font-size:1.4rem;letter-spacing:.06em;display:flex;align-items:center;gap:.5rem}
+  .foot-links{display:flex;gap:2rem;flex-wrap:wrap;font-family:'DM Mono';font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+  .foot-links a{color:var(--sand);text-decoration:none;opacity:.75}
+  .foot-links a:hover{opacity:1;color:var(--stencil-yellow)}
+  .foot-fine{max-width:1140px;margin:2.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(216,207,180,.15);font-family:'DM Mono';font-size:.68rem;letter-spacing:.08em;color:#8a8568;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+  @media(max-width:820px){
+    .hero-grid{grid-template-columns:1fr;gap:3rem}
+    .hero-phone{transform:rotate(0);order:-1}
+    .feat-grid{grid-template-columns:1fr}
+    .drill-grid{grid-template-columns:1fr;gap:2rem}
+    .ribbon{gap:1.8rem}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
+  <div class="tagbar">
+    <span>FIELD MANUAL — NO. 0001</span>
+    <span>ISSUED FOR iOS</span>
+  </div>
+
+  <nav>
+    <a href="#" class="brand"><span class="ico">≫</span> DRILLFIT</a>
+    <div class="nav-right">
+      <a href="#ranks" class="nav-link">Ranks</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="support.html" class="nav-link">Support</a>
+      <a href="#enlist" class="nav-cta">Download</a>
+    </div>
+  </nav>
+
   <header class="hero">
-    <span class="badge">◆ Drop and give me 20</span>
-    <div class="logo">Drill<span>Fit</span></div>
-    <p class="tag">Your drill sergeant fitness tracker — workouts, nutrition, ranks.</p>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Fitness tracker · zero sympathy</div>
+        <h1>YOUR APP<br>WON'T YELL.<br><span class="stamp">THIS ONE WILL.</span></h1>
+        <p class="hero-sub">A workout &amp; nutrition tracker with a drill sergeant who promotes you for showing up — and calls you a couch ornament when you don't.</p>
+        <div class="hero-ctas">
+          <a href="#enlist" class="btn-primary">Download on iOS →</a>
+          <a href="#ranks" class="btn-ghost">See the ranks</a>
+        </div>
+      </div>
+      <div class="hero-phone">
+        <div class="notch"></div>
+        <div class="lock-time">7:00</div>
+        <div class="lock-date">SAT · JUN 13</div>
+        <div class="notif">
+          <div class="notif-head">
+            <div class="notif-ico">≫</div>
+            <div class="notif-app">REVEILLE 🎖️</div>
+            <div class="notif-time">now</div>
+          </div>
+          <div class="notif-body">STAND TALL, PRIVATE. Sleep is for civilians. UP.</div>
+        </div>
+      </div>
+    </div>
   </header>
-</div>
 
-<nav>
-  <a href="#support">Support</a>
-  <a href="#faq">FAQ</a>
-  <a href="#privacy">Privacy</a>
-</nav>
+  <div class="ribbon">
+    <div><b>10 RANKS</b><span>Private → SMA</span></div>
+    <div><b>AI COACH</b><span>Builds your workouts</span></div>
+    <div><b>REAL STRENGTH</b><span>Ranked by your lifts</span></div>
+    <div><b>NO MERCY</b><span>Drill sergeant mode</span></div>
+  </div>
 
-<div class="wrap">
+  <section class="ranks" id="ranks">
+    <div class="section-head">
+      <div class="section-eyebrow">Chain of command</div>
+      <div class="section-title">Everyone starts a <em>Private.</em><br>Ten ranks. Earn every one.</div>
+    </div>
+    <div class="ladder">
+      <!-- top to bottom, SMA at top -->
+      <div class="rung">
+        <div class="chevs" style="color:var(--r-red)"><span class="chev">⌃</span><span class="chev">≫≫≫</span></div>
+        <div><div class="rung-name">Sergeant Major of the Army</div></div>
+        <div class="rung-abbr">SMA</div>
+      </div>
+      <div class="rung">
+        <div class="chevs" style="color:var(--r-gold)"><span class="chev">≫≫≫</span></div>
+        <div><div class="rung-name">Sergeant Major</div></div>
+        <div class="rung-abbr">SGM</div>
+      </div>
+      <div class="rung">
+        <div class="chevs" style="color:var(--r-gold2)"><span class="chev">≫≫</span></div>
+        <div><div class="rung-name">Master Sergeant</div></div>
+        <div class="rung-abbr">MSG</div>
+      </div>
+      <div class="rung">
+        <div class="chevs" style="color:var(--r-purple)"><span class="chev">≫≫</span></div>
+        <div><div class="rung-name">Sergeant First Class</div></div>
+        <div class="rung-abbr">SFC</div>
+      </div>
+      <div class="rung">
+        <div class="chevs" style="color:var(--r-purple2)"><span class="chev">≫</span></div>
+        <div><div class="rung-name">Staff Sergeant</div></div>
+        <div class="rung-abbr">SSG</div>
+      </div>
+      <div class="rung">
+        <div class="chevs" style="color:var(--r-blue)"><span class="chev">≫</span></div>
+        <div><div class="rung-name">Sergeant</div></div>
+        <div class="rung-abbr">SGT</div>
+      </div>
+      <div class="rung">
+        <div class="chevs" style="color:var(--r-blue2)"><span class="chev">⌃⌃</span></div>
+        <div><div class="rung-name">Specialist</div></div>
+        <div class="rung-abbr">SPC</div>
+      </div>
+      <div class="rung here">
+        <div class="chevs" style="color:var(--orange)"><span class="chev">⌃⌃</span></div>
+        <div><div class="rung-name">Corporal</div></div>
+        <div class="here-tag">You are here</div>
+      </div>
+      <div class="rung">
+        <div class="chevs" style="color:var(--r-tan)"><span class="chev">⌃</span></div>
+        <div><div class="rung-name">Private First Class</div></div>
+        <div class="rung-abbr">PFC</div>
+      </div>
+      <div class="rung">
+        <div class="chevs" style="color:var(--r-olive)"><span class="chev">∧</span></div>
+        <div><div class="rung-name">Private</div></div>
+        <div class="rung-abbr">PVT</div>
+      </div>
+    </div>
+    <p class="ladder-note">Ranks are calculated from your lifts relative to bodyweight — not streaks, not app-opens. Real strength earns real stripes.</p>
+  </section>
 
-  <!-- SUPPORT -->
-  <section id="support">
-    <h2>Support</h2>
-    <p class="sub">Stuck, found a bug, or want to request a feature? Reach out — every message gets read.</p>
-    <div class="card">
-      <h3>Contact</h3>
-      <p>Email us and we'll get back to you, usually within a couple of days.</p>
-      <a class="cta" href="mailto:support@drillfit.app?subject=DrillFit%20Support">✉ support@drillfit.app</a>
-      <p style="margin-top:18px; color:var(--muted); font-size:14px">
-        When reporting a bug, it helps to include your device model, iOS version, and what you were doing when it happened.
-      </p>
+  <section class="features" id="features">
+    <div class="section-head">
+      <div class="section-eyebrow">Standard issue</div>
+      <div class="section-title" style="color:var(--sand-light)">Everything in the kit</div>
+    </div>
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-tag">// 01 — TRAINING</div><h3>Workout Logging</h3><p>Sets, reps, weight, rest timers, and automatic PR detection. Progress charted exercise by exercise.</p></div>
+      <div class="feat"><div class="feat-tag">// 02 — INTEL</div><h3>AI Coach</h3><p>Ask for a push day and it builds one — using your real lift history to pick the weights — then drops it into your templates ready to start.</p></div>
+      <div class="feat"><div class="feat-tag">// 03 — RATIONS</div><h3>Nutrition Tracking</h3><p>Calorie &amp; macro targets from your TDEE, barcode scanning, and meals from 38+ restaurants for eating out.</p></div>
+      <div class="feat"><div class="feat-tag">// 04 — RANK</div><h3>Strength Ranking</h3><p>Ten military ranks earned from your lifts relative to bodyweight, with a per-muscle strength map.</p></div>
+      <div class="feat"><div class="feat-tag">// 05 — COMMS</div><h3>Drill Sergeant Mode</h3><p>Three intensities — Mild Roast, Medium Roast, Full Savage. The notifications do not coddle.</p></div>
+      <div class="feat"><div class="feat-tag">// 06 — SYNC</div><h3>Apple Health</h3><p>Connects to Apple Health, tracks body weight trends, and works solo or with the community feed.</p></div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq">
-    <h2>FAQ</h2>
-    <p class="sub">The quick answers.</p>
-
-    <details>
-      <summary>What is DrillFit?</summary>
-      <div class="body">A fitness tracker with a drill-sergeant personality. Log your workouts, track nutrition (including meals from 38+ restaurants), and climb a military-style strength ranking as you get stronger.</div>
-    </details>
-    <details>
-      <summary>Does DrillFit sync with Apple Health?</summary>
-      <div class="body">Yes. With your permission, DrillFit reads and writes data such as workouts, active energy, and body weight through Apple HealthKit. You control this anytime in iOS Settings → Health → Data Access &amp; Devices, and your Health data is never used for advertising or sold.</div>
-    </details>
-    <details>
-      <summary>Where is my data stored?</summary>
-      <div class="body">Your account and logs are stored securely using Google Firebase (authentication, database, and storage). See the Privacy Policy below for the full breakdown.</div>
-    </details>
-    <details>
-      <summary>How does the strength ranking work?</summary>
-      <div class="body">Ranks are calculated from your lifts relative to your bodyweight, then mapped onto a five-phase military rank ladder from Private up to Sergeant Major of the Army.</div>
-    </details>
-    <details>
-      <summary>How do I delete my account and data?</summary>
-      <div class="body">You can request full deletion of your account and associated data at any time by emailing <a href="mailto:support@drillfit.app?subject=Delete%20my%20DrillFit%20data">support@drillfit.app</a>. We'll remove your data from our systems.</div>
-    </details>
+  <section class="drill">
+    <div class="drill-grid">
+      <div class="drill-text">
+        <div class="section-eyebrow">Motivation, recalibrated</div>
+        <div class="section-title">The notifications<br>don't <em>coddle.</em></div>
+        <p>Other apps send a polite little reminder. DrillFit sends a superior officer. Pick your intensity and let the Sergeant handle the rest.</p>
+        <div class="intensity">
+          <span class="chip">Mild Roast</span>
+          <span class="chip">Medium Roast</span>
+          <span class="chip active">Full Savage</span>
+        </div>
+      </div>
+      <div class="notif-stack">
+        <div class="mini-notif">
+          <div class="notif-head"><div class="notif-ico">≫</div><div class="notif-app">REVEILLE 🎖️</div><div class="notif-time">7:00 AM</div></div>
+          <div class="notif-body">STAND TALL, PRIVATE. Sleep is for civilians. UP.</div>
+        </div>
+        <div class="mini-notif">
+          <div class="notif-head"><div class="notif-ico">≫</div><div class="notif-app">DRILL SGT. 🎖️</div><div class="notif-time">6:30 PM</div></div>
+          <div class="notif-body">BACK ON THE LINE, RECRUIT. One day off and you're RUSTING.</div>
+        </div>
+        <div class="mini-notif">
+          <div class="notif-head"><div class="notif-ico">≫</div><div class="notif-app">FALL IN — NOW</div><div class="notif-time">yesterday</div></div>
+          <div class="notif-body">THREE DAYS AWOL, RECRUIT. This is a DISGRACE. MOVE.</div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- PRIVACY -->
-  <section id="privacy">
-    <h2>Privacy Policy</h2>
-    <p class="meta">Last updated: June 8, 2026</p>
-    <p>This Privacy Policy explains how DrillFit ("we", "us", "the app") collects, uses, and protects your information when you use the DrillFit mobile application. By using DrillFit, you agree to the practices described here.</p>
-
-    <h3>Information we collect</h3>
-    <ul>
-      <li><strong>Account information.</strong> When you sign up, we collect your email address (and basic profile info if you sign in with Google) to create and secure your account.</li>
-      <li><strong>Fitness &amp; nutrition data you enter.</strong> Workouts, sets, weights, body weight logs, food and meal entries, and goals that you record in the app.</li>
-      <li><strong>Apple Health (HealthKit) data.</strong> With your explicit permission, we read and/or write data such as active energy, workouts, and body weight. This data is used only to power features inside the app. It is never used for advertising and is never sold.</li>
-      <li><strong>Community content.</strong> Posts, comments, reactions, and follow relationships you create in the in-app community feed.</li>
-      <li><strong>Diagnostics.</strong> Crash reports and basic performance data (via Firebase Crashlytics) to help us fix bugs and improve stability.</li>
-    </ul>
-
-    <h3>How we use your information</h3>
-    <ul>
-      <li>To provide core features: tracking, charts, rankings, nutrition logging, and the community feed.</li>
-      <li>To sync your data across your devices and back it up.</li>
-      <li>To diagnose crashes and improve app reliability and performance.</li>
-      <li>To respond to your support requests.</li>
-    </ul>
-
-    <h3>Third-party services</h3>
-    <p>DrillFit relies on the following services, each with its own privacy practices:</p>
-    <ul>
-      <li><strong>Google Firebase</strong> (authentication, database, storage, crash reporting) — stores your account and app data.</li>
-      <li><strong>Apple HealthKit</strong> — on-device health data, accessed only with your permission.</li>
-      <li><strong>Nutrition databases</strong> (USDA FoodData Central, Spoonacular, Open Food Facts) — when you search for foods, we send your search query to look up nutrition information. We do not send your personal account data to these services.</li>
-    </ul>
-
-    <h3>Data sharing</h3>
-    <p>We do not sell your personal information. Content you choose to post in the community feed is visible to other users. Apart from the service providers listed above (who process data on our behalf), we do not share your personal data with third parties except where required by law.</p>
-
-    <h3>Data retention &amp; deletion</h3>
-    <p>We keep your data while your account is active. You can request deletion of your account and associated data at any time by emailing <a href="mailto:support@drillfit.app?subject=Delete%20my%20DrillFit%20data">support@drillfit.app</a>, and we will remove it from our systems.</p>
-
-    <h3>Children's privacy</h3>
-    <p>DrillFit is not directed to children under 13, and we do not knowingly collect personal information from them.</p>
-
-    <h3>Security</h3>
-    <p>We use industry-standard measures, including the security features provided by Firebase, to protect your data. No method of transmission or storage is 100% secure, but we work to keep your information safe.</p>
-
-    <h3>Changes to this policy</h3>
-    <p>We may update this policy from time to time. Material changes will be reflected by the "Last updated" date above.</p>
-
-    <h3>Contact</h3>
-    <p>Questions about this policy? Email <a href="mailto:support@drillfit.app?subject=Privacy%20Question">support@drillfit.app</a>.</p>
+  <section class="enlist" id="enlist">
+    <h2>Report for duty.</h2>
+    <p>Free on the App Store · iOS</p>
+    <!-- TODO: replace # with App Store URL once Build 74 is live -->
+    <a href="#" class="btn-dark">Download DrillFit →</a>
   </section>
 
   <footer>
-    <div class="logo-sm">Drill<span style="color:var(--accent)">Fit</span></div>
-    <p style="margin-top:8px">© 2026 Sidarth Gaonkar. All rights reserved.</p>
+    <div class="foot-grid">
+      <div class="foot-brand"><span style="color:var(--stencil-yellow)">≫</span> DRILLFIT</div>
+      <div class="foot-links">
+        <a href="#ranks">Ranks</a>
+        <a href="#features">Features</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="foot-fine">
+      <span>© 2026 SIDARTH GAONKAR. ALL RIGHTS RESERVED.</span>
+      <span>SUPPORT@DRILLFIT.COM</span>
+    </div>
   </footer>
-</div>
 </body>
 </html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DrillFit Support — get help, report a bug, or request a feature.">
+<title>DrillFit — Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Saira+Condensed:wght@600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--olive:#3a3f2e;--olive-deep:#23271a;--olive-mid:#2f3422;--sand:#d8cfb4;--sand-light:#ebe5d2;--orange:#e25b2a;--orange-bright:#f06937;--stencil-yellow:#e8b93f;--ink:#16180f;--paper:#e7e1cd}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Oswald',sans-serif;background:var(--paper);color:var(--ink)}
+  ::selection{background:var(--orange);color:var(--sand-light)}
+  .tagbar{background:var(--ink);color:var(--sand);font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;padding:.5rem 1.5rem;display:flex;justify-content:space-between}
+  .tagbar span{opacity:.65}
+  nav{background:var(--olive);color:var(--sand-light);padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--orange)}
+  .brand{font-family:'Saira Condensed';font-weight:800;font-size:1.5rem;letter-spacing:.06em;display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--sand-light)}
+  .brand .ico{width:30px;height:30px;background:var(--olive-deep);border:1px solid rgba(232,185,63,.3);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--stencil-yellow);font-size:.95rem;letter-spacing:-3px}
+  .nav-cta{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;background:var(--orange);color:var(--sand-light);padding:.55rem 1.1rem;text-decoration:none;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+  .doc-head{background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(0,0,0,.02) 30px,rgba(0,0,0,.02) 31px),var(--olive);color:var(--sand-light);padding:3.5rem 1.5rem}
+  .doc-head-inner{max-width:780px;margin:0 auto}
+  .doc-eyebrow{font-family:'DM Mono';font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--stencil-yellow);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+  .doc-eyebrow::before{content:"";width:30px;height:2px;background:var(--orange)}
+  .doc-head h1{font-family:'Saira Condensed';font-weight:800;font-size:clamp(2.4rem,6vw,3.6rem);text-transform:uppercase;line-height:.95}
+  .doc{max-width:780px;margin:0 auto;padding:3.5rem 1.5rem 4rem}
+  .doc .lede{font-size:1.12rem;line-height:1.6;color:#3f3c2a;margin-bottom:2rem}
+  .doc h2{font-family:'Saira Condensed';font-weight:800;font-size:1.6rem;text-transform:uppercase;letter-spacing:.02em;margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid rgba(58,63,46,.2);color:var(--olive)}
+  .doc p{font-size:1.02rem;line-height:1.65;margin-bottom:1rem;color:#3f3c2a}
+  .contact-card{background:var(--olive);color:var(--sand-light);padding:2rem;margin:1.5rem 0;border-radius:4px}
+  .contact-card p{color:var(--sand);margin-bottom:1.2rem}
+  .mail-btn{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.95rem;background:var(--orange);color:var(--sand-light);padding:.85rem 1.6rem;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+  .mail-btn:hover{background:var(--orange-bright)}
+  .tip{font-family:'DM Mono';font-size:.8rem;line-height:1.5;color:#6f6b54;margin-top:1.2rem;padding-left:1rem;border-left:2px solid rgba(58,63,46,.3)}
+  .faq-item{border-bottom:1px dashed rgba(58,63,46,.2);padding:1.3rem 0}
+  .faq-q{font-family:'Saira Condensed';font-weight:700;font-size:1.2rem;text-transform:uppercase;letter-spacing:.01em;color:var(--ink);margin-bottom:.5rem}
+  .faq-a{font-size:1rem;line-height:1.6;color:#3f3c2a}
+  .doc a{color:var(--orange);text-decoration:none;border-bottom:1px solid rgba(226,91,42,.4)}
+  .doc a:hover{color:var(--orange-bright)}
+  .contact-card a{color:var(--stencil-yellow);border:none}
+  footer{background:var(--ink);color:var(--sand);padding:2.5rem 1.5rem}
+  .foot-grid{max-width:780px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;align-items:center}
+  .foot-brand{font-family:'Saira Condensed';font-weight:800;font-size:1.3rem;letter-spacing:.06em}
+  .foot-links{display:flex;gap:1.8rem;flex-wrap:wrap;font-family:'DM Mono';font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+  .foot-links a{color:var(--sand);text-decoration:none;opacity:.75}
+  .foot-links a:hover{opacity:1;color:var(--stencil-yellow)}
+  .foot-copy{font-family:'DM Mono';font-size:.68rem;color:#8a8568;max-width:780px;margin:1.5rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(216,207,180,.15)}
+</style>
+</head>
+<body>
+  <div class="tagbar"><span>FIELD MANUAL — SUPPORT</span><span>SUPPORT@DRILLFIT.COM</span></div>
+  <nav>
+    <a href="index.html" class="brand"><span class="ico">≫</span> DRILLFIT</a>
+    <a href="index.html" class="nav-cta">← Home</a>
+  </nav>
+  <div class="doc-head">
+    <div class="doc-head-inner">
+      <div class="doc-eyebrow">Report in</div>
+      <h1>Support</h1>
+    </div>
+  </div>
+  <main class="doc">
+    <p class="lede">Stuck, found a bug, or want to request a feature? Reach out — every message gets read.</p>
+
+    <div class="contact-card">
+      <p>Email us and we'll get back to you, usually within a couple of days.</p>
+      <a href="mailto:support@drillfit.com?subject=DrillFit%20Support" class="mail-btn">✉ support@drillfit.com</a>
+    </div>
+    <p class="tip">When reporting a bug, it helps to include your device model, iOS version, and what you were doing when it happened.</p>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">What is DrillFit?</div>
+      <div class="faq-a">A fitness tracker with a drill-sergeant personality. Log your workouts, track nutrition (including meals from 38+ restaurants), and climb a military-style strength ranking as you get stronger.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does DrillFit sync with Apple Health?</div>
+      <div class="faq-a">Yes. With your permission, DrillFit reads and writes data such as workouts, active energy, and body weight through Apple HealthKit. You control this anytime in iOS Settings → Health → Data Access &amp; Devices, and your Health data is never used for advertising or sold.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How does the strength ranking work?</div>
+      <div class="faq-a">Ranks are calculated from your lifts relative to your bodyweight, then mapped onto a 10-rank military ladder from Private up to Sergeant Major of the Army.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the AI Coach?</div>
+      <div class="faq-a">The AI Coach answers training questions and can build workouts from your real lift history or adjust your nutrition goals — always with your confirmation before anything changes. It speaks in the drill-sergeant voice, but it won't change your data without a tap.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Where is my data stored?</div>
+      <div class="faq-a">Your account and logs are stored securely using Google Firebase (authentication, database, and storage). See the <a href="privacy.html">Privacy Policy</a> for the full breakdown.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I delete my account and data?</div>
+      <div class="faq-a">You can request full deletion of your account and associated data at any time by emailing <a href="mailto:support@drillfit.com?subject=Delete%20my%20DrillFit%20data">support@drillfit.com</a>. We'll remove your data from our systems.</div>
+    </div>
+  </main>
+  <footer>
+    <div class="foot-grid">
+      <div class="foot-brand"><span style="color:var(--stencil-yellow)">≫</span> DRILLFIT</div>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+    <div class="foot-copy">© 2026 Sidarth Gaonkar. All rights reserved. · support@drillfit.com</div>
+  </footer>
+</body>
+</html>

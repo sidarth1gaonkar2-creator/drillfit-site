@@ -3,119 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="DrillFit Privacy Policy — how we collect, use, and protect your information.">
 <title>DrillFit — Privacy Policy</title>
+<meta name="description" content="How DrillFit collects, uses, and protects your information.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Saira+Condensed:wght@600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  :root{--olive:#3a3f2e;--olive-deep:#23271a;--sand:#d8cfb4;--sand-light:#ebe5d2;--orange:#e25b2a;--orange-bright:#f06937;--stencil-yellow:#e8b93f;--ink:#16180f;--paper:#e7e1cd}
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Oswald',sans-serif;background:var(--paper);color:var(--ink)}
-  ::selection{background:var(--orange);color:var(--sand-light)}
-  .tagbar{background:var(--ink);color:var(--sand);font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;padding:.5rem 1.5rem;display:flex;justify-content:space-between}
-  .tagbar span{opacity:.65}
-  nav{background:var(--olive);color:var(--sand-light);padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--orange)}
-  .brand{font-family:'Saira Condensed';font-weight:800;font-size:1.5rem;letter-spacing:.06em;display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--sand-light)}
-  .brand .ico{width:30px;height:30px;background:var(--olive-deep);border:1px solid rgba(232,185,63,.3);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--stencil-yellow);font-size:.95rem;letter-spacing:-3px}
-  .nav-cta{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;background:var(--orange);color:var(--sand-light);padding:.55rem 1.1rem;text-decoration:none;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
-  .doc-head{background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(0,0,0,.02) 30px,rgba(0,0,0,.02) 31px),var(--olive);color:var(--sand-light);padding:3.5rem 1.5rem}
-  .doc-head-inner{max-width:780px;margin:0 auto}
-  .doc-eyebrow{font-family:'DM Mono';font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--stencil-yellow);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
-  .doc-eyebrow::before{content:"";width:30px;height:2px;background:var(--orange)}
-  .doc-head h1{font-family:'Saira Condensed';font-weight:800;font-size:clamp(2.4rem,6vw,3.6rem);text-transform:uppercase;line-height:.95}
-  .doc-updated{font-family:'DM Mono';font-size:.78rem;letter-spacing:.1em;color:var(--sand);margin-top:.8rem;opacity:.8}
-  .doc{max-width:780px;margin:0 auto;padding:3.5rem 1.5rem 4rem}
-  .doc .lede{font-size:1.12rem;line-height:1.6;color:#3f3c2a;margin-bottom:2.5rem}
-  .doc h2{font-family:'Saira Condensed';font-weight:800;font-size:1.6rem;text-transform:uppercase;letter-spacing:.02em;margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid rgba(58,63,46,.2);color:var(--olive)}
-  .doc p{font-size:1.02rem;line-height:1.65;margin-bottom:1rem;color:#3f3c2a}
-  .doc ul{list-style:none;margin:1rem 0 1.5rem}
-  .doc li{font-size:1.02rem;line-height:1.6;margin-bottom:.85rem;padding-left:1.5rem;position:relative;color:#3f3c2a}
-  .doc li::before{content:"▸";position:absolute;left:0;color:var(--orange);font-size:1rem}
-  .doc li strong{font-weight:600;color:var(--ink)}
-  .doc a{color:var(--orange);text-decoration:none;border-bottom:1px solid rgba(226,91,42,.4)}
-  .doc a:hover{color:var(--orange-bright)}
-  footer{background:var(--ink);color:var(--sand);padding:2.5rem 1.5rem}
-  .foot-grid{max-width:780px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;align-items:center}
-  .foot-brand{font-family:'Saira Condensed';font-weight:800;font-size:1.3rem;letter-spacing:.06em}
-  .foot-links{display:flex;gap:1.8rem;flex-wrap:wrap;font-family:'DM Mono';font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
-  .foot-links a{color:var(--sand);text-decoration:none;opacity:.75}
-  .foot-links a:hover{opacity:1;color:var(--stencil-yellow)}
-  .foot-copy{font-family:'DM Mono';font-size:.68rem;color:#8a8568;max-width:780px;margin:1.5rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(216,207,180,.15)}
+:root{
+  --ink:#1A1C1A; --field:#21241F; --bone:#E8E4D8; --brass:#C8A24B;
+  --olive:#6B7257; --alert:#C24A38; --maxw:760px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--bone);font-family:'Inter',system-ui,sans-serif;
+  line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+a{color:var(--brass);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;z-index:50;background:rgba(26,28,26,0.85);
+  backdrop-filter:blur(10px);border-bottom:1px solid rgba(232,228,216,0.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Oswald',sans-serif;
+  font-weight:700;font-size:1.25rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--bone)}
+.logo-mark{width:26px;height:30px}
+.back{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.06em;color:var(--bone)}
+.back:hover{color:var(--brass);text-decoration:none}
+.doc{padding:54px 0 90px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:1rem}
+.doc h1{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:2.4rem;letter-spacing:0.01em;margin-bottom:0.5rem;line-height:1.05}
+.updated{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--olive);
+  margin-bottom:2.4rem;padding-bottom:1.6rem;border-bottom:1px solid rgba(232,228,216,0.1)}
+.doc h2{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;
+  font-size:1.3rem;letter-spacing:0.02em;margin:2.4rem 0 0.8rem;color:var(--bone)}
+.doc h2::before{content:"";display:inline-block;width:20px;height:1px;background:var(--brass);
+  vertical-align:middle;margin-right:10px;opacity:0.6}
+.doc p,.doc li{color:#cdc8ba;margin-bottom:0.9rem}
+.doc strong{color:var(--bone);font-weight:600}
+.doc ul{list-style:none;padding-left:0}
+.doc ul li{position:relative;padding-left:20px}
+.doc ul li::before{content:"▸";position:absolute;left:0;color:var(--brass)}
+.callout{background:var(--field);border-left:2px solid var(--brass);border-radius:0 6px 6px 0;
+  padding:16px 20px;margin:1.4rem 0}
+.callout p:last-child{margin-bottom:0}
+.faq-q{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:1.05rem;
+  letter-spacing:0.02em;color:var(--bone);margin:1.8rem 0 0.5rem}
+.faq-q .mono{font-family:'JetBrains Mono',monospace;color:var(--brass);margin-right:10px;font-size:0.85rem}
+footer{border-top:1px solid rgba(232,228,216,0.1);padding:32px 0 48px;background:var(--field)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.foot-links{display:flex;gap:22px;font-size:0.9rem}
+.foot-links a{color:var(--bone)}
+.foot-links a:hover{color:var(--brass);text-decoration:none}
+.foot-stamp{font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.16em;
+  color:var(--olive);border:1px solid rgba(107,114,87,0.4);padding:4px 9px;border-radius:3px}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
 </style>
 </head>
 <body>
-  <div class="tagbar"><span>FIELD MANUAL — PRIVACY</span><span>EFFECTIVE 2026</span></div>
-  <nav>
-    <a href="index.html" class="brand"><span class="ico">≫</span> DRILLFIT</a>
-    <a href="index.html" class="nav-cta">← Home</a>
-  </nav>
-  <div class="doc-head">
-    <div class="doc-head-inner">
-      <div class="doc-eyebrow">Records &amp; disclosure</div>
-      <h1>Privacy Policy</h1>
-      <div class="doc-updated">Last updated: June 8, 2026</div>
-    </div>
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><svg class="logo-mark" viewBox="0 0 40 48" fill="none" stroke="var(--brass)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20 L20 11 L34 20"/><path d="M6 30 L20 21 L34 30"/><path d="M6 40 L20 31 L34 40"/></svg> DrillFit</a>
+    <a href="index.html" class="back">&larr; Home</a>
   </div>
-  <main class="doc">
-    <p class="lede">This Privacy Policy explains how DrillFit ("we", "us", "the app") collects, uses, and protects your information when you use the DrillFit mobile application. By using DrillFit, you agree to the practices described here.</p>
+</header>
+<main class="wrap doc" id="privacy">
+  <span class="eyebrow">Field Manual — Records &amp; Disclosure</span>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: June 24, 2026</p>
 
-    <h2>Information we collect</h2>
-    <ul>
-      <li><strong>Account information.</strong> When you sign up, we collect your email address (and basic profile info if you sign in with Google) to create and secure your account.</li>
-      <li><strong>Fitness &amp; nutrition data you enter.</strong> Workouts, sets, weights, body weight logs, food and meal entries, and goals that you record in the app.</li>
-      <li><strong>Apple Health (HealthKit) data.</strong> With your explicit permission, we read and/or write data such as active energy, workouts, and body weight. This data is used only to power features inside the app. It is never used for advertising and is never sold.</li>
-      <li><strong>Community content.</strong> Posts, comments, reactions, and follow relationships you create in the in-app community feed.</li>
-      <li><strong>AI Coach conversations.</strong> When you use the AI Coach, the messages you send and relevant context from your training data are processed to generate responses. See "Third-party services" below.</li>
-      <li><strong>Diagnostics.</strong> Crash reports and basic performance data (via Firebase Crashlytics) to help us fix bugs and improve stability.</li>
-    </ul>
+  <p>This Privacy Policy explains how DrillFit ("we", "us", "the app") collects, uses, and protects your information when you use the DrillFit mobile application. By using DrillFit, you agree to the practices described here.</p>
 
-    <h2>How we use your information</h2>
-    <ul>
-      <li>To provide core features: tracking, charts, rankings, nutrition logging, the AI Coach, and the community feed.</li>
-      <li>To sync your data across your devices and back it up.</li>
-      <li>To diagnose crashes and improve app reliability and performance.</li>
-      <li>To respond to your support requests.</li>
-    </ul>
+  <h2>Information we collect</h2>
+  <ul>
+    <li><strong>Account information.</strong> When you sign up, we collect your email address (and basic profile info if you sign in with Google or Apple) to create and secure your account.</li>
+    <li><strong>Fitness &amp; nutrition data you enter.</strong> Workouts, sets, weights, body-weight logs, food and meal entries, rankings, and goals that you record in the app.</li>
+    <li><strong>Apple Health (HealthKit) data.</strong> With your explicit permission, we read and/or write data such as active energy, workouts, and body weight. This data powers features inside the app only. It is never used for advertising and is never sold.</li>
+    <li><strong>Community content.</strong> Posts, comments, reactions, and follow relationships you create in the in-app community feed.</li>
+    <li><strong>AI Coach conversations.</strong> When you use the AI Coach, the messages you send and relevant context from your training data are processed to generate responses. See "Third-party services" below.</li>
+    <li><strong>Diagnostics.</strong> Crash reports and basic performance data (via Firebase Crashlytics) to help us fix bugs and improve stability.</li>
+  </ul>
 
-    <h2>Third-party services</h2>
-    <p>DrillFit relies on the following services, each with its own privacy practices:</p>
-    <ul>
-      <li><strong>Google Firebase</strong> (authentication, database, storage, crash reporting) — stores your account and app data.</li>
-      <li><strong>Anthropic</strong> — powers the AI Coach. When you send a message to the AI Coach, your message and relevant training context are sent through our secure server to Anthropic's API to generate a response. This data is not used to train models and is not sold.</li>
-      <li><strong>Apple HealthKit</strong> — on-device health data, accessed only with your permission.</li>
-      <li><strong>Nutrition databases</strong> (USDA FoodData Central, Spoonacular, Open Food Facts) — when you search for foods, we send your search query to look up nutrition information. We do not send your personal account data to these services.</li>
-    </ul>
+  <h2>How we use your information</h2>
+  <ul>
+    <li>To provide core features: tracking, charts, rankings, nutrition logging, the AI Coach, and the community feed.</li>
+    <li>To sync your data across your devices and back it up.</li>
+    <li>To diagnose crashes and improve app reliability and performance.</li>
+    <li>To respond to your support requests.</li>
+  </ul>
 
-    <h2>Data sharing</h2>
-    <p>We do not sell your personal information. Content you choose to post in the community feed is visible to other users. Apart from the service providers listed above (who process data on our behalf), we do not share your personal data with third parties except where required by law.</p>
+  <h2>Third-party services</h2>
+  <p>DrillFit relies on the following services, each with its own privacy practices:</p>
+  <ul>
+    <li><strong>Google Firebase</strong> (authentication, database, storage, crash reporting) — stores your account and app data.</li>
+    <li><strong>Anthropic</strong> — powers the AI Coach. When you send a message to the AI Coach, your message and relevant training context are sent through our server to Anthropic to generate a response. This data is not used to train models.</li>
+    <li><strong>Nutrition data providers</strong> (USDA FoodData Central, Spoonacular) — used to look up food and recipe information when you search. Your queries are sent to retrieve results.</li>
+  </ul>
 
-    <h2>Data retention &amp; deletion</h2>
-    <p>We keep your data while your account is active. You can request deletion of your account and associated data at any time by emailing <a href="mailto:support@drillfit.com?subject=Delete%20my%20DrillFit%20data">support@drillfit.com</a>, and we will remove it from our systems.</p>
+  <h2>Account &amp; data deletion</h2>
+  <div class="callout">
+    <p>You can permanently delete your account and all associated data at any time, directly in the app: <strong>Settings &rarr; Delete Account</strong>. After a confirmation step, this removes your account and your data — workouts, nutrition, progress, rankings, community posts, and profile — from our systems. This action is irreversible.</p>
+  </div>
 
-    <h2>Children's privacy</h2>
-    <p>DrillFit is not directed to children under 13, and we do not knowingly collect personal information from them.</p>
+  <h2>Data retention</h2>
+  <p>We retain your data for as long as your account is active. When you delete your account, your data is removed as described above. Some records may be retained where required for safety, security, or legal compliance (for example, abuse reports filed about content).</p>
 
-    <h2>Security</h2>
-    <p>We use industry-standard measures, including the security features provided by Firebase, to protect your data. No method of transmission or storage is 100% secure, but we work to keep your information safe.</p>
+  <h2>Children's privacy</h2>
+  <p>DrillFit is rated 12+ and is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us information, contact us and we will remove it.</p>
 
-    <h2>Changes to this policy</h2>
-    <p>We may update this policy from time to time. Material changes will be reflected by the "Last updated" date above.</p>
+  <h2>Your choices</h2>
+  <ul>
+    <li>You control HealthKit permissions in iOS Settings and can revoke them anytime.</li>
+    <li>You can edit or delete individual entries in the app.</li>
+    <li>You can delete your entire account and data as described above.</li>
+  </ul>
 
-    <h2>Contact</h2>
-    <p>Questions about this policy? Email <a href="mailto:support@drillfit.com?subject=Privacy%20Question">support@drillfit.com</a>.</p>
-  </main>
-  <footer>
-    <div class="foot-grid">
-      <div class="foot-brand"><span style="color:var(--stencil-yellow)">≫</span> DRILLFIT</div>
-      <div class="foot-links">
-        <a href="index.html">Home</a>
-        <a href="support.html">Support</a>
-        <a href="terms.html">Terms</a>
-      </div>
+  <h2>Contact</h2>
+  <p>Questions about this policy or your data? Email <a href="mailto:support@drillfit.com">support@drillfit.com</a>.</p>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="support.html">Support</a>
     </div>
-    <div class="foot-copy">© 2026 Sidarth Gaonkar. All rights reserved. · support@drillfit.com</div>
-  </footer>
+    <span class="foot-stamp">FM 1-DRILL</span>
+  </div>
+</footer>
 </body>
 </html>

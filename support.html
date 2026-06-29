@@ -3,110 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="DrillFit Support — get help, report a bug, or request a feature.">
 <title>DrillFit — Support</title>
+<meta name="description" content="Get help with DrillFit — FAQ, troubleshooting, and contact.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Saira+Condensed:wght@600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  :root{--olive:#3a3f2e;--olive-deep:#23271a;--olive-mid:#2f3422;--sand:#d8cfb4;--sand-light:#ebe5d2;--orange:#e25b2a;--orange-bright:#f06937;--stencil-yellow:#e8b93f;--ink:#16180f;--paper:#e7e1cd}
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Oswald',sans-serif;background:var(--paper);color:var(--ink)}
-  ::selection{background:var(--orange);color:var(--sand-light)}
-  .tagbar{background:var(--ink);color:var(--sand);font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;padding:.5rem 1.5rem;display:flex;justify-content:space-between}
-  .tagbar span{opacity:.65}
-  nav{background:var(--olive);color:var(--sand-light);padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--orange)}
-  .brand{font-family:'Saira Condensed';font-weight:800;font-size:1.5rem;letter-spacing:.06em;display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--sand-light)}
-  .brand .ico{width:30px;height:30px;background:var(--olive-deep);border:1px solid rgba(232,185,63,.3);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--stencil-yellow);font-size:.95rem;letter-spacing:-3px}
-  .nav-cta{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;background:var(--orange);color:var(--sand-light);padding:.55rem 1.1rem;text-decoration:none;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
-  .doc-head{background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(0,0,0,.02) 30px,rgba(0,0,0,.02) 31px),var(--olive);color:var(--sand-light);padding:3.5rem 1.5rem}
-  .doc-head-inner{max-width:780px;margin:0 auto}
-  .doc-eyebrow{font-family:'DM Mono';font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--stencil-yellow);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
-  .doc-eyebrow::before{content:"";width:30px;height:2px;background:var(--orange)}
-  .doc-head h1{font-family:'Saira Condensed';font-weight:800;font-size:clamp(2.4rem,6vw,3.6rem);text-transform:uppercase;line-height:.95}
-  .doc{max-width:780px;margin:0 auto;padding:3.5rem 1.5rem 4rem}
-  .doc .lede{font-size:1.12rem;line-height:1.6;color:#3f3c2a;margin-bottom:2rem}
-  .doc h2{font-family:'Saira Condensed';font-weight:800;font-size:1.6rem;text-transform:uppercase;letter-spacing:.02em;margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:2px solid rgba(58,63,46,.2);color:var(--olive)}
-  .doc p{font-size:1.02rem;line-height:1.65;margin-bottom:1rem;color:#3f3c2a}
-  .contact-card{background:var(--olive);color:var(--sand-light);padding:2rem;margin:1.5rem 0;border-radius:4px}
-  .contact-card p{color:var(--sand);margin-bottom:1.2rem}
-  .mail-btn{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.95rem;background:var(--orange);color:var(--sand-light);padding:.85rem 1.6rem;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
-  .mail-btn:hover{background:var(--orange-bright)}
-  .tip{font-family:'DM Mono';font-size:.8rem;line-height:1.5;color:#6f6b54;margin-top:1.2rem;padding-left:1rem;border-left:2px solid rgba(58,63,46,.3)}
-  .faq-item{border-bottom:1px dashed rgba(58,63,46,.2);padding:1.3rem 0}
-  .faq-q{font-family:'Saira Condensed';font-weight:700;font-size:1.2rem;text-transform:uppercase;letter-spacing:.01em;color:var(--ink);margin-bottom:.5rem}
-  .faq-a{font-size:1rem;line-height:1.6;color:#3f3c2a}
-  .doc a{color:var(--orange);text-decoration:none;border-bottom:1px solid rgba(226,91,42,.4)}
-  .doc a:hover{color:var(--orange-bright)}
-  .contact-card a{color:var(--stencil-yellow);border:none}
-  footer{background:var(--ink);color:var(--sand);padding:2.5rem 1.5rem}
-  .foot-grid{max-width:780px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;align-items:center}
-  .foot-brand{font-family:'Saira Condensed';font-weight:800;font-size:1.3rem;letter-spacing:.06em}
-  .foot-links{display:flex;gap:1.8rem;flex-wrap:wrap;font-family:'DM Mono';font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
-  .foot-links a{color:var(--sand);text-decoration:none;opacity:.75}
-  .foot-links a:hover{opacity:1;color:var(--stencil-yellow)}
-  .foot-copy{font-family:'DM Mono';font-size:.68rem;color:#8a8568;max-width:780px;margin:1.5rem auto 0;padding-top:1.2rem;border-top:1px solid rgba(216,207,180,.15)}
+:root{
+  --ink:#1A1C1A; --field:#21241F; --bone:#E8E4D8; --brass:#C8A24B;
+  --olive:#6B7257; --alert:#C24A38; --maxw:760px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--bone);font-family:'Inter',system-ui,sans-serif;
+  line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+a{color:var(--brass);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;z-index:50;background:rgba(26,28,26,0.85);
+  backdrop-filter:blur(10px);border-bottom:1px solid rgba(232,228,216,0.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Oswald',sans-serif;
+  font-weight:700;font-size:1.25rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--bone)}
+.logo-mark{width:26px;height:30px}
+.back{font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:0.06em;color:var(--bone)}
+.back:hover{color:var(--brass);text-decoration:none}
+.doc{padding:54px 0 90px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--brass);display:block;margin-bottom:1rem}
+.doc h1{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:2.4rem;letter-spacing:0.01em;margin-bottom:0.5rem;line-height:1.05}
+.updated{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--olive);
+  margin-bottom:2.4rem;padding-bottom:1.6rem;border-bottom:1px solid rgba(232,228,216,0.1)}
+.doc h2{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;
+  font-size:1.3rem;letter-spacing:0.02em;margin:2.4rem 0 0.8rem;color:var(--bone)}
+.doc h2::before{content:"";display:inline-block;width:20px;height:1px;background:var(--brass);
+  vertical-align:middle;margin-right:10px;opacity:0.6}
+.doc p,.doc li{color:#cdc8ba;margin-bottom:0.9rem}
+.doc strong{color:var(--bone);font-weight:600}
+.doc ul{list-style:none;padding-left:0}
+.doc ul li{position:relative;padding-left:20px}
+.doc ul li::before{content:"▸";position:absolute;left:0;color:var(--brass)}
+.callout{background:var(--field);border-left:2px solid var(--brass);border-radius:0 6px 6px 0;
+  padding:16px 20px;margin:1.4rem 0}
+.callout p:last-child{margin-bottom:0}
+.faq-q{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:1.05rem;
+  letter-spacing:0.02em;color:var(--bone);margin:1.8rem 0 0.5rem}
+.faq-q .mono{font-family:'JetBrains Mono',monospace;color:var(--brass);margin-right:10px;font-size:0.85rem}
+footer{border-top:1px solid rgba(232,228,216,0.1);padding:32px 0 48px;background:var(--field)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.foot-links{display:flex;gap:22px;font-size:0.9rem}
+.foot-links a{color:var(--bone)}
+.foot-links a:hover{color:var(--brass);text-decoration:none}
+.foot-stamp{font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.16em;
+  color:var(--olive);border:1px solid rgba(107,114,87,0.4);padding:4px 9px;border-radius:3px}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
 </style>
 </head>
 <body>
-  <div class="tagbar"><span>FIELD MANUAL — SUPPORT</span><span>SUPPORT@DRILLFIT.COM</span></div>
-  <nav>
-    <a href="index.html" class="brand"><span class="ico">≫</span> DRILLFIT</a>
-    <a href="index.html" class="nav-cta">← Home</a>
-  </nav>
-  <div class="doc-head">
-    <div class="doc-head-inner">
-      <div class="doc-eyebrow">Report in</div>
-      <h1>Support</h1>
-    </div>
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><svg class="logo-mark" viewBox="0 0 40 48" fill="none" stroke="var(--brass)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20 L20 11 L34 20"/><path d="M6 30 L20 21 L34 30"/><path d="M6 40 L20 31 L34 40"/></svg> DrillFit</a>
+    <a href="index.html" class="back">&larr; Home</a>
   </div>
-  <main class="doc">
-    <p class="lede">Stuck, found a bug, or want to request a feature? Reach out — every message gets read.</p>
+</header>
+<main class="wrap doc" id="support">
+  <span class="eyebrow">Field Manual — Support &amp; Troubleshooting</span>
+  <h1>Support</h1>
+  <p class="updated">Last updated: June 24, 2026</p>
 
-    <div class="contact-card">
-      <p>Email us and we'll get back to you, usually within a couple of days.</p>
-      <a href="mailto:support@drillfit.com?subject=DrillFit%20Support" class="mail-btn">✉ support@drillfit.com</a>
-    </div>
-    <p class="tip">When reporting a bug, it helps to include your device model, iOS version, and what you were doing when it happened.</p>
+  <p>Need a hand? Most questions are answered below. If you're still stuck, the sergeant takes email.</p>
 
-    <h2>FAQ</h2>
+  <div class="callout">
+    <p><strong>Contact:</strong> <a href="mailto:support@drillfit.com">support@drillfit.com</a> — we read every message and reply as fast as we can.</p>
+  </div>
 
-    <div class="faq-item">
-      <div class="faq-q">What is DrillFit?</div>
-      <div class="faq-a">A fitness tracker with a drill-sergeant personality. Log your workouts, track nutrition (including meals from 38+ restaurants), and climb a military-style strength ranking as you get stronger.</div>
+  <h2>Frequently asked</h2>
+
+  <p class="faq-q"><span class="mono">Q.</span>My rank didn't move after a workout.</p>
+  <p>Make sure each set is logged with a weight and reps. Your rank on an exercise moves when you beat your best estimated one-rep-max for it — heavier weight or more reps both count. You don't need to tap the set checkmarks for it to register; finishing the workout is enough.</p>
+
+  <p class="faq-q"><span class="mono">Q.</span>How do I set my training days and start a streak?</p>
+  <p>Go to <strong>Settings &rarr; Notifications</strong> and tap the days you train under "Training Schedule." You don't need reminders turned on — picking your days is enough to start tracking your gym streak. Train on a scheduled day to keep it alive; miss one and it resets.</p>
+
+  <p class="faq-q"><span class="mono">Q.</span>The AI Coach isn't responding.</p>
+  <p>The AI Coach needs an internet connection. Check that you're online and try again. If it still won't respond, close and reopen the app. There's a daily usage limit; if you hit it, it resets the next day.</p>
+
+  <p class="faq-q"><span class="mono">Q.</span>How do I delete my account?</p>
+  <p>Go to <strong>Settings &rarr; Delete Account</strong>, then type DELETE to confirm. This permanently removes your account and all your data — workouts, nutrition, progress, rankings, community posts, and profile. It cannot be undone.</p>
+
+  <p class="faq-q"><span class="mono">Q.</span>Is DrillFit free?</p>
+  <p>Yes. No subscriptions, no in-app purchases. The coins you see are earned inside the app through training and unlock cosmetic themes only — they can't be bought.</p>
+
+  <p class="faq-q"><span class="mono">Q.</span>An exercise is logging under the wrong muscle group.</p>
+  <p>When you create a custom exercise, you'll be asked to pick its muscle group — that's what determines which rank it counts toward. You can recreate the exercise with the correct group if needed.</p>
+
+  <h2>Troubleshooting basics</h2>
+  <ul>
+    <li>Make sure you're on the latest version from the App Store.</li>
+    <li>Try signing out and back in (Settings &rarr; Sign Out).</li>
+    <li>Restart the app fully.</li>
+    <li>Still stuck? Email <a href="mailto:support@drillfit.com">support@drillfit.com</a> with your device model and iOS version.</li>
+  </ul>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="support.html">Support</a>
     </div>
-    <div class="faq-item">
-      <div class="faq-q">Does DrillFit sync with Apple Health?</div>
-      <div class="faq-a">Yes. With your permission, DrillFit reads and writes data such as workouts, active energy, and body weight through Apple HealthKit. You control this anytime in iOS Settings → Health → Data Access &amp; Devices, and your Health data is never used for advertising or sold.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How does the strength ranking work?</div>
-      <div class="faq-a">Ranks are calculated from your lifts relative to your bodyweight, then mapped onto a 10-rank military ladder from Private up to Sergeant Major of the Army.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What is the AI Coach?</div>
-      <div class="faq-a">The AI Coach answers training questions and can build workouts from your real lift history or adjust your nutrition goals — always with your confirmation before anything changes. It speaks in the drill-sergeant voice, but it won't change your data without a tap.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Where is my data stored?</div>
-      <div class="faq-a">Your account and logs are stored securely using Google Firebase (authentication, database, and storage). See the <a href="privacy.html">Privacy Policy</a> for the full breakdown.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How do I delete my account and data?</div>
-      <div class="faq-a">You can request full deletion of your account and associated data at any time by emailing <a href="mailto:support@drillfit.com?subject=Delete%20my%20DrillFit%20data">support@drillfit.com</a>. We'll remove your data from our systems.</div>
-    </div>
-  </main>
-  <footer>
-    <div class="foot-grid">
-      <div class="foot-brand"><span style="color:var(--stencil-yellow)">≫</span> DRILLFIT</div>
-      <div class="foot-links">
-        <a href="index.html">Home</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-      </div>
-    </div>
-    <div class="foot-copy">© 2026 Sidarth Gaonkar. All rights reserved. · support@drillfit.com</div>
-  </footer>
+    <span class="foot-stamp">FM 1-DRILL</span>
+  </div>
+</footer>
 </body>
 </html>
